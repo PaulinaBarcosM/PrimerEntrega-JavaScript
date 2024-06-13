@@ -1,5 +1,7 @@
 // Calcular edad para las opciones de viaje disponibles con TakeOff.
 
+// INCIO PRIMERA ENTREGA COMENTADA
+/*
 let edadUsuario;
 let edadMinima;
 
@@ -36,3 +38,52 @@ if (edadMinima >= 18){
 } else {
     console.log("Lo sentimos, no cumples con la edad mínima requerida para viajar con TakeOff.");
 }
+FIN PRIMERA ENTREGA*/
+
+
+//SEGUNDA PRE-ENTREGA
+class Trips{
+    constructor(trip, descripcion, precio, fecha){
+        this.trip = trip;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.fecha = fecha;
+    }
+}
+
+const VIAJES = [
+    new Trips(  "Surftrips Chapadmalal", 
+                "Hospedaje en TakeOFF House - Desayuno, Almuerzo y Cena(Experiencia gourmet) - Clases de surf y Yoga (Incluye Equipos) - Música en vivo - Fogón - Traslado",
+                "300 USD", 
+                "12 al 14 de febrero/3 días y 3 noches - 26 al 28 de febrero/3 días y 3 noches"
+    ),
+    new Trips(  "TakeOFF Bariloche",
+                "7 días y 7 noches en la TakeOFF Snow House - Desayuno y Cena gourmet - Equipos y pases (optativos) - Transfer in-out al aeropuerto - Jacuzzi - After ski y música en vivo - Coaching de montaña",
+                "A partir de 1100 USD y 2000 USD (dependiendo la fecha y habitación)",
+                "6/7 al 27/7 - 7/9 al 21/9"
+    ),
+    new Trips(  "Wake Circuito",
+                "Aventura de 3 días en nuestro circuito privado de Córdoba - Desayuno, Almuerzo y Cena gourmet - Equipos incluidos - Música en vivo - Traslado incluido",
+                "350 USD",
+                "2 al 5 de enero - 10 al 13 de enero"
+    )
+];
+
+const CONTENEDOR_TRIPS = document.getElementById('containerTrips');
+
+function estructuraTrips(viaje){
+    viaje.forEach(trips =>{
+        const card = document.createElement('div');
+        card.classList.add('contenedor-trips');
+        card.innerHTML = `
+                        <h2 class="h2-viajes">${trips.trip}</h2>
+                        <p class="p-uno">${trips.descripcion}</p>
+                        <p class="p-uno">${trips.precio}</p>
+                        <p class="p-uno">${trips.fecha}</p>
+                        `; 
+        CONTENEDOR_TRIPS.appendChild(card);      
+    })
+}
+
+estructuraTrips(VIAJES);
+//FIN SEGUNDA ENTREGA
